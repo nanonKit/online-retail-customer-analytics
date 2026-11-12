@@ -1,0 +1,30 @@
+# Data (ไม่ commit ข้อมูล — ดูวิธีดาวน์โหลดใน README)
+data/raw/*
+data/marts/*
+!data/**/.gitkeep
+
+# DuckDB
+*.duckdb
+*.duckdb.wal
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+
+# Misc
+.env
+.DS_Store
+Thumbs.db
+
+# Personal learning notes (kept local)
+KNOWLEDGE_BASE.md
+needs_practice.md
+logics_technical.md
+PHASE_EXECUTION.md

@@ -1,0 +1,25 @@
+[project]
+name = "online-retail-customer-analytics"
+version = "0.1.0"
+description = "Customer value & retention analytics (RFM, CLV, basket) on UCI Online Retail II"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    # Python layer อ่านเฉพาะ Parquet ที่ SQL export ให้ (ไม่มี SQL ใน Python)
+    "pandas",
+    "pyarrow",
+    "pymc-marketing",
+    "mlxtend",
+    "matplotlib",
+    "seaborn",
+    "jupyter",
+]
+
+[dependency-groups]
+dev = [
+    "dbt-duckdb",
+    "sqlfluff",
+]
+
+[tool.uv]
+package = false
