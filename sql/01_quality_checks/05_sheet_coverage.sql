@@ -1,6 +1,4 @@
--- 6.0 macro excel_to_ts ย้ายไป sql/00_ingest/02_macros.sql (รันก่อนไฟล์นี้)
-
--- 6.1 ช่วงเวลาของแต่ละ sheet
+-- ช่วงเวลาของแต่ละ sheet
 SELECT
     source_sheet,
     MIN(excel_to_ts(InvoiceDate))  AS first_ts,
@@ -11,7 +9,7 @@ FROM raw_transactions
 GROUP BY source_sheet
 ORDER BY source_sheet;
 
--- 6.2 มี Invoice ที่อยู่ทั้งสอง sheet ไหม
+-- Invoice ที่อยู่ทั้งสอง sheet ไหม
 SELECT COUNT(*) AS invoices_in_both_sheets
 FROM (
     SELECT Invoice FROM raw_transactions WHERE source_sheet = 'Year 2009-2010'
@@ -19,13 +17,13 @@ FROM (
     SELECT Invoice FROM raw_transactions WHERE source_sheet = 'Year 2010-2011'
 );
 
--- 6.3 จำนวนแถวช่วงซ้อนใน sheet แรก
+-- จำนวนแถวช่วงซ้อนใน sheet แรก
 SELECT COUNT(*) AS overlap_rows
 FROM raw_transactions
 WHERE source_sheet = 'Year 2009-2010'
   AND excel_to_ts(InvoiceDate) >= TIMESTAMP '2010-12-01';
 
--- 6.4 สองชุดเหมือนกันทุกแถวไหม (ควรได้ 0)
+-- สองชุดเหมือนกันทุกแถวไหม (ควรได้ 0)
 SELECT COUNT(*) AS rows_only_in_sheet1
 FROM (
     SELECT * EXCLUDE (source_sheet) FROM raw_transactions

@@ -1,4 +1,4 @@
--- 5.1 นับแต่ละประเภท
+-- นับแต่ละประเภท
 WITH typed AS (
     SELECT *,
         TRY_CAST(Quantity AS INTEGER) AS qty_num,
@@ -26,7 +26,7 @@ FROM classified
 GROUP BY row_type
 ORDER BY row_count DESC;
 
--- 5.2 StockCode ที่ไม่ใช่รหัสสินค้า 5 หลัก มีอะไรบ้าง
+-- StockCode ที่ไม่ใช่รหัสสินค้า 5 หลัก มีอะไรบ้าง
 SELECT
     StockCode,
     ANY_VALUE(Description) AS example_description,

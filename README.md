@@ -33,7 +33,7 @@ Merchandising: add **"Shop the collection"** navigation (theme → colour → pr
 
 ## Data Issues Found
 
-The raw file is not analysis-ready. Each issue was profiled in SQL and logged with a decision ([`reports/data_quality_report.md`](reports/data_quality_report.md)).
+The raw file is not analysis-ready. Each issue was profiled in SQL (`sql/01_quality_checks/`) and logged with a decision.
 
 | Issue | Size | Decision |
 |---|---|---|
@@ -104,7 +104,7 @@ uv sync
 ├── sql/             00_ingest · 01_quality_checks · 02_staging · 03_analysis · 04_marts
 ├── notebooks/       03_clv · 04_basket
 ├── dashboard/       Power BI file + spec
-└── reports/         data quality log · executive summary · basket rules · dashboard image
+└── reports/         basket rules · dashboard image
 ```
 
 ## Citation
